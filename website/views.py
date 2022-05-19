@@ -140,7 +140,7 @@ def ytanalyze():
     data = pd.read_csv(r'youtubecomments.csv' ,header=None)
     data.to_csv(r'youtubecomments.csv', header=["Source","Date","Author","Comment"], index=False)
 
-    data = pd.read_csv(r'youtubecomments.csv')
+    data = [pd.read_csv(r'youtubecomments.csv')]
 
 
     list_of_csv = [list(row) for row in data.values]
@@ -149,10 +149,10 @@ def ytanalyze():
 
     comment = [str(r).replace('\r', ' ') for r in comment]
     data.Comment=comment
-    comment = data['Comment'].apply(remove3ConsecutiveDuplicates)
-    data.Comment=comment
+    comment2 = data['Comment'].apply(remove3ConsecutiveDuplicates)
+    data.Comment=comment2
     data.to_csv('youtubecomments.csv', index=False)
-    
+
 
     date = data.Date
 
@@ -163,13 +163,17 @@ def ytanalyze():
         val = b[2]+"-"+b[1]+"-"+b[0]
         return (val)
 
-    d=0
+
     new_date=[]
-    for x in date:
-        new_date_string = str(x)
-        new_date_string = splitdate(new_date_string)
-        new_date.append(new_date_string)
-        d+1
+    def datereplace():
+
+        for x in date:
+            new_date_string = str(x)
+            if pd.isna(new_date_string):
+                break
+            new_date_string = splitdate(new_date_string)
+            new_date.append(new_date_string)
+
 
     data.Date = new_date
     data.to_csv('youtubecomments.csv', index=False)
