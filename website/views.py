@@ -154,9 +154,7 @@ def ytanalyze():
     d=0
     new_date=[]
     for x in date:
-        new_date_string = x
-        if pd.isna(new_date_string):
-            break
+        new_date_string = str(x)
         new_date_string = splitdate(new_date_string)
         new_date.append(new_date_string)
         d+1
