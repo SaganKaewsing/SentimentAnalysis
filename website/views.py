@@ -238,18 +238,19 @@ def get_comments(part='snippet',
                 #4 index item for desired data features
                 comment1 = item['snippet']['topLevelComment']['snippet']
                 comment = comment1['textDisplay'].replace('\n', '')
+                comment2 = comment.replace('\r','')
                 author = comment1['authorDisplayName']
                 date = comment1['publishedAt']
                 source = comment1['videoId']
 
                 #4 append to lists
-                comments.append(comment)
+                comments.append(comment2)
             
                 #7 write line by line
                 with open('youtubecomments.csv','a+',encoding='utf-8-sig') as f:
                     # write the data in csv file with colums(source, date, author, text of comment)
                     csv_writer = writer(f)
-                    csv_writer.writerow([source,date,author,comment])
+                    csv_writer.writerow([source,date,author,comment2])
 
 
                 #8 check for nextPageToken, and if it exists, set response equal to the JSON response
