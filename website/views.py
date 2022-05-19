@@ -140,7 +140,7 @@ def ytanalyze():
     data = pd.read_csv(r'youtubecomments.csv' ,header=None)
     data.to_csv(r'youtubecomments.csv', header=["Source","Date","Author","Comment"], index=False)
 
-    data = pd.read_csv(r'youtubecomments.csv').replace('\r','', regex=True)
+    data = pd.read_csv(r'youtubecomments.csv')
 
 
     list_of_csv = [list(row) for row in data.values]
