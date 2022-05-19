@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pupk#2mj+o6^42t5+fai#$=b_s5v54)gznfv!g3ic-j@#-th#q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sentimentanalysis78.herokuapp.com']
 
 
 # Application definition
