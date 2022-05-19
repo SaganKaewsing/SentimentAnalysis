@@ -142,7 +142,19 @@ def ytanalyze():
 
     data = pd.read_csv(r'youtubecomments.csv')
 
-    date = [data.Date]
+
+    list_of_csv = [list(row) for row in data.values]
+    flat_list = [item for sublist in list_of_csv for item in sublist]
+    comment = flat_list[3::4]
+
+    comment = [str(r).replace('\r', ' ') for r in comment]
+    data.Comment=comment
+    comment = data['Comment'].apply(remove3ConsecutiveDuplicates)
+    data.Comment=comment
+    data.to_csv('youtubecomments.csv', index=False)
+    
+
+    date = data.Date
 
     def splitdate(t):
         t = str(t)
@@ -155,8 +167,6 @@ def ytanalyze():
     new_date=[]
     for x in date:
         new_date_string = str(x)
-        if pd.isna(new_date_string):
-            break
         new_date_string = splitdate(new_date_string)
         new_date.append(new_date_string)
         d+1
@@ -164,16 +174,6 @@ def ytanalyze():
     data.Date = new_date
     data.to_csv('youtubecomments.csv', index=False)
 
-
-    list_of_csv = [list(row) for row in data.values]
-    flat_list = [item for sublist in list_of_csv for item in sublist]
-    comment = flat_list[3::4]
-
-    comment = [str(r).replace('\r', ' ') for r in comment]
-    data.Comment=comment
-    comment = data['Comment'].apply(remove3ConsecutiveDuplicates)
-    data.Comment=comment
-    data.to_csv('youtubecomments.csv', index=False)
 
     i=0
     consec=[]
