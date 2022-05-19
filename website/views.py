@@ -140,17 +140,16 @@ def ytanalyze():
     data = pd.read_csv(r'youtubecomments.csv' ,header=None)
     data.to_csv(r'youtubecomments.csv', header=["Source","Date","Author","Comment"], index=False)
 
-    data = [pd.read_csv(r'youtubecomments.csv')]
+    data = pd.read_csv(r'youtubecomments.csv').replace('\r','', regex=True)
 
 
     list_of_csv = [list(row) for row in data.values]
     flat_list = [item for sublist in list_of_csv for item in sublist]
     comment = flat_list[3::4]
 
-    comment = [str(r).replace('\r', ' ') for r in comment]
+
+    comment = data['Comment'].apply(remove3ConsecutiveDuplicates)
     data.Comment=comment
-    comment2 = data['Comment'].apply(remove3ConsecutiveDuplicates)
-    data.Comment=comment2
     data.to_csv('youtubecomments.csv', index=False)
 
 
