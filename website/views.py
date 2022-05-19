@@ -71,7 +71,6 @@ def link(request):
 
         return render(request, "main_dashboard.html", context)
     else:
-        print("Use Youtube URL")
         messages.info(request,'Input must be Youtube URL.')
         return redirect('/')
 
@@ -153,8 +152,8 @@ def ytanalyze():
 
     d=0
     new_date=[]
-    for asd in date:
-        new_string = asd
+    for x in date:
+        new_string = x
         new_string = splitdate(new_string)
         new_date.append(new_string)
         d+1
@@ -244,7 +243,6 @@ def get_comments(part='snippet',
                 #7 write line by line
                 with open('youtubecomments.csv','a+',encoding='utf-8-sig') as f:
                     # write the data in csv file with colums(source, date, author, text of comment)
-                    print(videoURL)
                     csv_writer = writer(f)
                     csv_writer.writerow([source,date,author,comment])
 
