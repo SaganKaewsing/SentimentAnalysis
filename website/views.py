@@ -164,14 +164,13 @@ def ytanalyze():
 
 
     new_date=[]
-    def datereplace():
 
-        for x in date:
-            new_date_string = str(x)
-            if pd.isna(new_date_string):
-                break
-            new_date_string = splitdate(new_date_string)
-            new_date.append(new_date_string)
+    for x in date:
+        new_date_string = str(x)
+        if pd.isna(new_date_string):
+            continue
+        new_date_string = splitdate(new_date_string)
+        new_date.append(new_date_string)
 
 
     data.Date = new_date
