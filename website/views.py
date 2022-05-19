@@ -153,9 +153,9 @@ def ytanalyze():
     d=0
     new_date=[]
     for x in date:
-        new_string = x
-        new_string = splitdate(new_string)
-        new_date.append(new_string)
+        new_date_string = x
+        new_date_string = splitdate(new_date_string)
+        new_date.append(new_date_string)
         d+1
 
     data.Date = new_date
@@ -184,8 +184,8 @@ def ytanalyze():
     fn_predictions = []
 
     for dsa in consec:
-        new_string = dsa
-        yt_tokens = text_process(new_string)
+        new_strings = dsa
+        yt_tokens = text_process(new_strings)
         yt_bow = cvec.transform(pd.Series([yt_tokens]))
         yt_predictions = lr.predict(yt_bow)
         if (yt_predictions == ['pos']) : fn_predictions.append("Positive")
