@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-wide, initial-scale=1, maximum-scale=1, minimum-scale=1"
+        <title></title>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css"
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <input type="checkbox" name="" id="sidebar-toggle">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-flex">
+                    <img src="{% static 'img/logokmitl.png' %}" height="50px" alt="">
+                        
+                    <div class="brand-icon">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sidebar-main">
+                <div class="sidebar-user">
+                    <img src="{% static 'img/Text_Analysis.png' %}"alt="">
+                    <div>
+                    <br>
+                        <h3>Text Analysis for Comment Classification</h3>
+                    </div>
+                </div>
+
+                <div class="sidebar-menu">
+                    <div class="menu-block">
+                        <div class="menu-head">
+                            <span>Main Menu</span> 
+                        </div>
+                        <ul>
+                            <li><a href="/" style="text-decoration:none;">
+                                <span class="las la-chart-pie"></span>
+                                Analysis Dashboard
+                            </a>
+                        </li>
+                            <li><a href="analysis" style="text-decoration:none;">
+                                <span class="las la-file-alt"></span>
+                                Text Analysis
+                            </a>
+                            </li>
+                            <li><a href="/how" style="text-decoration:none;">
+                                <span class="las la-question"></span>
+                                How to use 
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="main-content">
+            <header>
+                <div class="menu-toggle">
+                    <label for="sidebar-toggle">
+                        <span class="las la-bars"></span>
+                    </label>
+                </div>
+
+            </header>
+            <main>
+                <div class="page-header">
+                    <div>
+                        <h1>Text Analysis for Comment Classification</h1>
+                        <small>โครงงานนี้เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต
+                            สาขาวิชาวิศวกรรมสารสนเทศ ภาควิชาวิศวกรรมคอมพิวเตอร์</small>
+                    </div>
+
+                </div>
+
+                    <div class="imgwrap">
+                        <div class="analytics-head">
+                            <h2>วิเคราะห์ความรู้สึกจากข้อความ</h2>
+                        </div><br>
+                        <div class="analytics-chart">
+                            <div class="center">
+                            <form action="txt">
+                                <input type="text" placeholder="ใส่ข้อความที่ต้องการวิเคราะห์" name="txt"/><br>
+                                <button TYPE="submit" VALUE="Submit" >
+                                    <span class="las la-check"></span>
+                                    ยืนยัน
+                                </button>
+                            </form>
+                            <br> ผลลัพธ์ : {{text_analyze}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+        <label for="sidebar-toggle" class="body-label"></label>
+    </body>
+</html>
+{% block content %}
+{% endblock %}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+{% load static %}
+{% load %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-wide, initial-scale=1, maximum-scale=1, minimum-scale=1"
+        <title></title>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <input type="checkbox" name="" id="sidebar-toggle">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-flex">
+                    <img src="{% static 'img/logokmitl.png' %}" height="50px" alt="">
+                        
+                    <div class="brand-icon">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sidebar-main">
+                <div class="sidebar-user">
+                    <img src="{% static 'img/Text_Analysis.png' %}"alt="">
+                    <div>
+                    <br>
+                        <h3>Text Analysis for Comment Classification</h3>
+                    </div>
+                </div>
+
+                <div class="sidebar-menu">
+                    <div class="menu-block">
+                        <div class="menu-head">
+                            <span>Main Menu</span> 
+                        </div>
+                        <ul>
+                            <li><a href="/" style="text-decoration:none;">
+                                <span class="las la-chart-pie"></span>
+                                Analysis Dashboard
+                            </a>
+                        </li>
+                            <li><a href="analysis" style="text-decoration:none;">
+                                <span class="las la-file-alt"></span>
+                                Text Analysis
+                            </a>
+                            </li>
+                            <li><a href="/how" style="text-decoration:none;">
+                                <span class="las la-question"></span>
+                                How to use 
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="main-content">
+            <header>
+                <div class="menu-toggle">
+                    <label for="sidebar-toggle">
+                        <span class="las la-bars"></span>
+                    </label>
+                </div>
+            </header>
+            <main>
+                <div class="page-header">
+                    <div>
+                        <h1>Text Analysis for Comment Classification</h1>
+                        <small>โครงงานนี้เป็นส่วนหนึ่งของการศึกษาตามหลักสูตรปริญญาวิศวกรรมศาสตรบัณฑิต
+                            สาขาวิชาวิศวกรรมสารสนเทศ ภาควิชาวิศวกรรมคอมพิวเตอร์</small>
+                    </div>
+                </div>
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages%}
+                    <b>{{message}}</b>
+                    {% endfor%}
+                </div>
+                {%endif%}
+                <div class="header-actions">
+                    <form action="link">
+                        <input type="link" placeholder="link" name="url"/>
+                        <button TYPE="submit" VALUE="Submit">
+                            <span class="las la-search"></span>
+                            Input link
+                        </button>
+                    </form>
+                </div>
+                <div class="cards">
+                    <a href="{% url 'linktotal' %}" style="text-decoration:none;">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-chart comment">
+                                <span class="las la-user"></span>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <small>จำนวนของ</small>
+                                    <span>Total Comment</span>
+                                </div>
+
+                                <h2>{{total_comment}}</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+
+                    <a href="{% url 'linkpos' %}" style="text-decoration:none;">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-chart positive">
+                                <span class="las la-laugh"></span>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <small>จำนวนของ</small>
+                                    <span>Positive Comment</span>
+                                </div>
+
+                                <h2>{{positive_comment}}</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+
+                    <a href="{% url 'linkneg' %}" style="text-decoration:none;">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-chart negative">
+                                <span class="las la-angry"></span>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <small>จำนวนของ</small>
+                                    <span>Negative Comment</span>
+                                </div>
+
+                                <h2>{{negative_comment}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+
+                    <a href="{% url 'linkneu' %}" style="text-decoration:none;">
+                    <div class="card-single">
+                        <div class="card-flex">
+                            <div class="card-chart netural">
+                                <span class="las la-meh-blank"></span>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-head">
+                                    <small>จำนวนของ</small>
+                                    <span>Netural Comment</span>
+                                </div>
+                                <h2>{{neutral_comment}}</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    
+                </div>
+
+                <div class="user-grid">
+                    <div class="analytics-card">
+                        <div class="analytics-head">
+                            <h2>Analysis Comment</h2>
+                        </div>
+                        <div class="analytics-chart">
+                            <div id="donutchart" style="width: 360px; height: 240px ;place-items: center;
+                            margin: auto;"></div>
+                            <div class="analytics-note">
+                                <small>
+                                    Positive Comment : {{positive_percent}}%<br>
+                                    Negative Comment : {{negative_percent}}%<br>
+                                    Netural Comment  : {{neutral_percent}}%
+                                </small>
+                            </div>
+                        </div>
+                        <div>
+                        <a class="button" href="/" style="text-decoration:none;">
+                            <button>Refresh</button>
+                        </a>
+                        </div>
+                    </div>
+
+                    <div class="users">
+                        <h2>Users Comment
+                            <a href="{% url 'download_file'%}"><small>Download result as csv <span class="las la-file-download"></span></small></a>
+                        </h2>
+                        <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><div style="color: #fff; background: #1a202e; border-radius: 3px 0px 0px 3px;">Name</div></td>
+                                        <td><div style="color: #fff; background: #1a202e; border-radius: 0%;">Comment</div></td>
+                                        <td><div style="color: #fff; background: #1a202e; border-radius: 0%;">Result</div></td>
+                                        <td><div style="color: #fff; background: #1a202e; border-radius: 0px 3px 3px 0px; table-layout: fixed; width: 168%;">Date</div></td>
+                            
+                                    </tr>
+                                    {% for a in loaded_data %}
+                                    <tr>
+                                        <td><div>{{a.Author}}</div></td>
+                                        <td><div style="display: block; overflow: auto;table-layout: fixed; width: 100%;">{{a.Comment}}</div></td>
+                                        <td><div>{{a.Result}}</div></td>
+                                        <td><div style="table-layout: fixed; width: 168%;">{{a.Date}}</div></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+        <label for="sidebar-toggle" class="body-label"></label>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Sentimental', 'Comment Count'],
+              ['Positive Comment', {{positive_comment}} ],
+              ['Negative Comment',{{negative_comment}} ],
+              ['Netural Comment', {{neutral_comment}} ],
+            ]);
+    
+            var options = {
+              title: '',
+              pieHole: 0.4,
+              colors: ['#3bb143', '#ba0900', '#3376bd'],
+            };
+    
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+          }
+        </script>
+    </body>
+</html>
+{% block content %}
+{% endblock %}
