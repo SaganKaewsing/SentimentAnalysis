@@ -142,7 +142,7 @@ def ytanalyze():
 
     data = pd.read_csv(r'youtubecomments.csv')
 
-    date = data.Date
+    date = [data.Date]
 
     def splitdate(t):
         t = str(t)
@@ -155,7 +155,7 @@ def ytanalyze():
     new_date=[]
     for x in date:
         new_date_string = x
-        if {pd.isna(new_date_string)}:
+        if pd.isna(new_date_string):
             break
         new_date_string = splitdate(new_date_string)
         new_date.append(new_date_string)
