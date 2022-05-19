@@ -208,15 +208,15 @@
                                         <td><div style="color: #fff; background: #1a202e; border-radius: 3px 0px 0px 3px;">Name</div></td>
                                         <td><div style="color: #fff; background: #1a202e; border-radius: 0%;">Comment</div></td>
                                         <td><div style="color: #fff; background: #1a202e; border-radius: 0%;">Result</div></td>
-                                        <td><div style="color: #fff; background: #1a202e; border-radius: 0px 3px 3px 0px; table-layout: fixed; width: 168%;">Date</div></td>
+                                        <td><div style="color: #fff; background: #1a202e; border-radius: 0px 3px 3px 0px; table-layout: fixed;">Date</div></td>
                             
                                     </tr>
                                     {% for a in loaded_data %}
                                     <tr>
                                         <td><div>{{a.Author}}</div></td>
-                                        <td><div style="display: block; overflow: auto;table-layout: fixed; width: 480px;">{{a.Comment}}</div></td>
+                                        <td><div style="display: block; overflow: auto;table-layout: fixed; ">{{a.Comment}}</div></td>
                                         <td><div>{{a.Result}}</div></td>
-                                        <td><div style="table-layout: fixed; width: 168%;">{{a.Date}}</div></td>
+                                        <td><div style="table-layout: fixed;">{{a.Date}}</div></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
