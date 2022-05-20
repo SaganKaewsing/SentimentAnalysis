@@ -237,8 +237,8 @@ def get_comments(part='snippet',
             for item in response['items']:
                 #4 index item for desired data features
                 comment1 = item['snippet']['topLevelComment']['snippet']
-                comment = comment1['textDisplay'].replace('\n', '')
-                comment2 = comment.replace('\r','')
+                comment = comment1['textDisplay'].replace('\n', ' ')
+                comment2 = comment.replace('\r',' ')
                 author = comment1['authorDisplayName']
                 date = comment1['publishedAt']
                 source = comment1['videoId']
