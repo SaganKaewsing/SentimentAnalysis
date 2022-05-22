@@ -148,7 +148,8 @@ def ytanalyze():
     comment = flat_list[3::4]
 
 
-    comment = data['Comment'].apply(remove3ConsecutiveDuplicates)
+    comment = data['Comment']
+    #.apply(remove3ConsecutiveDuplicates)
     data.Comment=comment
     data.to_csv('youtubecomments.csv', index=False)
 
