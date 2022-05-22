@@ -199,7 +199,7 @@ def ytanalyze():
         k+1
 
 
-    with open('youtubecomments.csv', 'r', encoding="utf8") as fi:
+    with open('youtubecomments.csv', 'r', encoding='utf-8-sig') as fi:
         lines = [[j.strip() for j in line.strip().split(',')] \
             for line in fi.readlines()]
 
@@ -207,7 +207,7 @@ def ytanalyze():
 
     new_lines = [line + [str(col[j])] for j, line in enumerate(lines)]
 
-    with open('youtubeoutput.csv', 'w', encoding="utf8") as fo:
+    with open('youtubeoutput.csv', 'w', encoding='utf-8-sig') as fo:
         for line in new_lines:
             fo.write(','.join(line) + '\n')
     
