@@ -78,7 +78,7 @@ def link(request):
     
 def ytanalyze():
 
-    df = pd.read_csv('TrainDataset.csv', sep=',', names=['text', 'sentiment','timestamp'], header=0)
+    df = pd.read_csv('TrainDataset.csv', sep=',', names=['text', 'sentiment'], header=0)
 
     from pythainlp.corpus.common import thai_stopwords
     thai_stopwords = list(thai_stopwords())
@@ -275,7 +275,7 @@ def get_comments(part='snippet',
 
 def txt(request):
     
-    df = pd.read_csv('TrainDataset.csv', sep=',', names=['text', 'sentiment', 'timestamp'], header=0)
+    df = pd.read_csv('TrainDataset.csv', sep=',', names=['text', 'sentiment'], header=0)
 
     from pythainlp.corpus.common import thai_stopwords
     thai_stopwords = list(thai_stopwords())
